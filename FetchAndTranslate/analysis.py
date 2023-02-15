@@ -9,7 +9,7 @@ import tweepy
 
 
 def getResult(name):
-    bearer_token=""
+    bearer_token=""         #should write the token before running
     client = tweepy.Client(bearer_token)
     post = client.search_recent_tweets(query=name,max_results=100)
     tweets=post.data
