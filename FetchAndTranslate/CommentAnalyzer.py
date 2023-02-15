@@ -1,0 +1,63 @@
+from ast import If
+from socket import if_indextoname
+from textblob import TextBlob
+import pandas as pd
+import numpy as np
+import re
+from FetchComments import FetchCommentsFromYoutube
+
+def getCommentResult(link):
+    tweets=FetchCommentsFromYoutube(link)
+    df=pd.DataFrame([i.text for i in tweets],columns=["Tweets"] )
+
+    # print(df["Tweets"])
+
+
+    def cleanT(text):
+        text= re.sub(r"@[A-Za-z0-9]+","",text)
+        text=re.sub(r"#","",text)
+        text=re.sub(r"RT[\s]:+","",text)
+        # text=re.sub(r"https?:\/\/\S+","  ")
+
+        return text
+
+
+    df["Tweets"]=df["Tweets"].apply(cleanT)
+
+    # print(df["Tweets"])
+
+    def getSubjectivity(text):
+        return TextBlob(text).sentiment.subjectivity
+
+
+    def getPolarity(text):
+        return TextBlob(text).sentiment.polarity
+
+
+
+    df["Subjectivity"]=df['Tweets'].apply(getSubjectivity)
+
+
+    df["Polarity"]=df['Tweets'].apply(getPolarity)
+
+
+
+    # print(df)
+
+
+
+    #analysis
+
+    def getAnalysis(score):
+        if score<0:
+            return "Negative"
+        elif score==0:
+            return "Neutral"
+        else:
+            return "Positive"
+
+
+    df["Sentiments"]=df["Polarity"].apply(getAnalysis)
+    l=df["Sentiments"].value_counts()
+
+    return l

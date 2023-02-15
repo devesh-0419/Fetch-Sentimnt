@@ -1,0 +1,7 @@
+bearer_token="AAAAAAAAAAAAAAAAAAAAAIoxbQEAAAAAOOfYpI98QgVAMvP1Pz%2FZfgqsRvs%3DMiKzzculmsEXtK2Soi2nCVYfubpykt3q8FzGlm5nf8lC1nHORA"
+consumer_token = "VHdaYndMSFhxZmdNMzhtSWtUMk46MTpjaQ"
+consumer_secret = "A7YWOsQJkKogXb0kw6EDuY48yDd0YR7CRoeJZni42elvSRP7kV"
+access_token = "1512683512260104192-PTuHlqEPV9rtgiJwyawEqWe2lJSxJf"
+access_token_secret = "ZLaAVSX4V4ywt6U0svk7rNZ5CYZr4cz1DomHF0qmY9Oay"
+
+YoutubeApiKey = "AIzaSyCc62YMH2fdhOIbv9XKXQiBwGBAKBJMgXQ"
