@@ -9,7 +9,7 @@ import tweepy
 
 
 def getResult(name):
-    bearer_token="AAAAAAAAAAAAAAAAAAAAAIoxbQEAAAAAOOfYpI98QgVAMvP1Pz%2FZfgqsRvs%3DMiKzzculmsEXtK2Soi2nCVYfubpykt3q8FzGlm5nf8lC1nHORA"
+    bearer_token=""
     client = tweepy.Client(bearer_token)
     post = client.search_recent_tweets(query=name,max_results=100)
     tweets=post.data
